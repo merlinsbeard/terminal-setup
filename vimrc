@@ -1,4 +1,33 @@
 syntax enable
+
+set nocompatible 	" required
+filetype off		"required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all plugins here
+Plugin 'mattn/emmet-vim'
+"Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'tpope/vim-fugitive'
+
+
+
+" All of your Plugins must be added before the follow line
+call vundle#end()
+filetype plugin indent on
+
+
 au BufNewFile,BufRead *.py
 	\ set tabstop=4 |
 	\ set softtabstop=4 |
@@ -20,12 +49,22 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Code Folding
-set foldmethod=indent
-set foldlevel=99
+"set foldmethod=indent
+"set foldlevel=99
 nnoremap <space> za
 
 set encoding=utf-8
 
 " Line Numbering
 set nu
+
+" Show statusline
+"set laststatus=2
+
 " new
+"
+" Airline Theme
+"let g:airline_theme='murmur'
+
+let python_highlight_all=1
+syntax on
