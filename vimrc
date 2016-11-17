@@ -12,14 +12,17 @@ Plugin 'gmarik/Vundle.vim'
 
 " Add all plugins here
 Plugin 'mattn/emmet-vim'
-"Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Plugin 'majutsushi/tagbar'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jnurmine/Zenburn'
 
 
 
@@ -28,6 +31,12 @@ call vundle#end()
 filetype plugin indent on
 
 
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set fileformat=unix 
 au BufNewFile,BufRead *.py
 	\ set tabstop=4 |
 	\ set softtabstop=4 |
@@ -35,12 +44,12 @@ au BufNewFile,BufRead *.py
 	\ set textwidth=79 |
 	\ set expandtab |
 	\ set autoindent |
-	\ set fileformat=unix |
+	\ set fileformat=unix 
 
-au BufNewFile,BufRead *.js, *.html, *.css
-	\ set tabstop=2 |
-	\ set softtabstop=2 |
-	\ set shiftwidth=2 |
+"au BufNewFile,BufRead *.js, *.html, *.css
+"	\ set tabstop=2 |
+"	\ set softtabstop=2 |
+"	\ set shiftwidth=2 
 
 " Split Panes Contrl uses Control + J,K,L,H
 nnoremap <C-J> <C-W><C-J>
@@ -59,12 +68,14 @@ set encoding=utf-8
 set nu
 
 " Show statusline
-"set laststatus=2
+set laststatus=2
 
 " new
 "
 " Airline Theme
-"let g:airline_theme='murmur'
 
 let python_highlight_all=1
 syntax on
+
+" Start NerdTreeTabs
+let g:nerdtree_tabs_open_on_console_startup=1
