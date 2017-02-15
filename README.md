@@ -17,14 +17,26 @@ Open vim then run ` :PluginInstall `this will install all the plugins.
 
 ## vim-plug Installation
 Taken from [https://github.com/junegunn/vim-plug](https://github.com/junegunn/vim-plug)
+
+
 ```
 $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    ```
+```
 
-    Copy the vim-plug.vimrc to home folder
 
-    ` $ cp vim-plug ~/.vimrc `
+Copy the vim-plug.vimrc to home folder
 
-    Open vim then run ` :PlugInstall `
+` $ cp vim-plug ~/.vimrc `
 
+Open vim then run ` :PlugInstall `
+
+#### Dependencies
+```
+# Needed for tagbar
+$ sudo apt-get install exuberant-ctags
+
+# Syntastic error checker
+$ sudo apt-get install flake8
+
+```
