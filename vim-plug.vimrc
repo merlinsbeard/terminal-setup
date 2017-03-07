@@ -21,12 +21,30 @@ Plug 'junegunn/fzf.vim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
-Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
 Plug 'sickill/vim-monokai'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Plugin for markdown
+Plug 'gabrielelana/vim-markdown'
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/seoul256.vim'
+
+" Thrift syntax highlighting
+Plug 'solarnz/thrift.vim'
+
+" Syntax autocomplete
+Plug 'valloric/youcompleteme'
+
+" better whitespace
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'nvie/vim-flake8'
+
 
 call plug#end()
 
@@ -75,12 +93,31 @@ set laststatus=2
 " new
 "
 " Airline Theme
+let g:airline_powerline_fonts=1
+let g:airline_theme='distinguished'
+let g:airline#extensions#tabline#enabled=1
+
+map <S-h> :bprev<CR>
+map <S-l> :bnext<CR>
+
 
 let python_highlight_all=1
 syntax on
 
 " Start NerdTreeTabs
 let g:nerdtree_tabs_open_on_console_startup=1
-colorscheme zenburn
+"colorscheme zenburn
+colorscheme seoul256
 let g:NERDTreeDirArrow=0
+
+" Keybinds
+nnoremap <F7> :NERDTreeToggle<cr> 
+nnoremap <F8> :TagbarToggle<cr> 
+nnoremap <F4> :set hlsearch! hlsearch?<CR>
+" flake
+autocmd FileType python map <buffer> <F3> :call Flake8()<cr>
+
+" Transparency
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
 
