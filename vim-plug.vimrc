@@ -18,13 +18,21 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'junegunn/fzf.vim'
 
+" Nerd Tree tabs
 Plug 'jistr/vim-nerdtree-tabs'
+" Tag bar for python
 Plug 'majutsushi/tagbar'
+"Code folding
 Plug 'tmhedberg/SimpylFold'
+
+" Theme
 Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
 Plug 'sickill/vim-monokai'
+
+" Zen Coding
 Plug 'mattn/emmet-vim'
+
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
@@ -33,7 +41,6 @@ Plug 'gabrielelana/vim-markdown'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/seoul256.vim'
 
 " Thrift syntax highlighting
 Plug 'solarnz/thrift.vim'
@@ -44,6 +51,17 @@ Plug 'valloric/youcompleteme'
 " better whitespace
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nvie/vim-flake8'
+
+Plug 'junegunn/vim-github-dashboard'
+
+" Emojis enabled
+Plug 'junegunn/vim-emoji'
+" Theme
+Plug 'junegunn/seoul256.vim'
+
+" vim-tmux-navigator
+" Makes ctrl + h j k l move in tmux
+Plug 'christoomey/vim-tmux-navigator'
 
 
 call plug#end()
@@ -90,16 +108,10 @@ set nu
 " Show statusline
 set laststatus=2
 
-" new
-"
 " Airline Theme
 let g:airline_powerline_fonts=1
 let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled=1
-
-map <S-h> :bprev<CR>
-map <S-l> :bnext<CR>
-
 
 let python_highlight_all=1
 syntax on
@@ -114,10 +126,17 @@ let g:NERDTreeDirArrow=0
 nnoremap <F7> :NERDTreeToggle<cr> 
 nnoremap <F8> :TagbarToggle<cr> 
 nnoremap <F4> :set hlsearch! hlsearch?<CR>
+" Buffer controls
+map <S-h> :bprev<CR>
+map <S-l> :bnext<CR>
+
 " flake
 autocmd FileType python map <buffer> <F3> :call Flake8()<cr>
 
 " Transparency
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
+
+" Github dashboard settings
+let g:github_dashboard = {'username':'$GITHUB_USERNAME', 'password': '$GITHUB_PASSWORD'}
 
