@@ -14,9 +14,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
+" Theme
 Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
 Plug 'sickill/vim-monokai'
+Plug 'chriskempson/base16-vim'
+Plug 'AlessandroYorba/Monrovia'
 Plug 'mattn/emmet-vim'
 " Git plugins
 Plug 'tpope/vim-fugitive'
