@@ -114,8 +114,8 @@ colorscheme seoul256
 let g:NERDTreeDirArrow=0
 
 " Keybinds
-nnoremap <F7> :NERDTreeToggle<cr>
-nnoremap <F8> :TagbarToggle<cr>
+nnoremap <F9> :NERDTreeToggle<cr>
+nnoremap <F10> :TagbarToggle<cr>
 nnoremap <F4> :set hlsearch! hlsearch?<CR>
 " flake
 autocmd FileType python map <buffer> <F3> :call Flake8()<cr>
