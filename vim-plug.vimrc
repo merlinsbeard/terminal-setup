@@ -46,7 +46,11 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/goyo.vim'
 " Limelight highlights the focus block code
 Plug 'junegunn/limelight.vim'
+" Game
+Plug 'johngrib/vim-game-code-break'
 
+
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -109,8 +113,7 @@ syntax on
 
 " Start NerdTreeTabs
 let g:nerdtree_tabs_open_on_console_startup=1
-"colorscheme zenburn
-colorscheme seoul256
+colorscheme PaperColor
 let g:NERDTreeDirArrow=0
 
 " Keybinds
