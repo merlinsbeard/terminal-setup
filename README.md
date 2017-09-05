@@ -59,3 +59,4 @@ To Install the plugins start tmux and press
 
 `Press Ctrl + A + I` 
 
+ty
