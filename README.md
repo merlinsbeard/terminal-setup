@@ -34,6 +34,18 @@ Copy the vim-plug.vimrc to home folder
 Open vim then run ` :PlugInstall `
 
 #### Dependencies
+
+##### You Complete Me vim Plugin
+
+```bash
+# go to youcompletemefolder
+$ cd ~/.vim/plugged/youcompleteme
+# Install cmake
+$ sudo apt-get install cmake
+# run installation script
+$ ./install.py # or ./install.py --all 
+```
+
 ```
 # Needed for tagbar
 $ sudo apt-get install exuberant-ctags
@@ -58,4 +70,3 @@ After install copy tmux.conf to $HOME folder
 To Install the plugins start tmux and press
 
 `Press Ctrl + A + I` 
-
