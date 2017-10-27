@@ -56,6 +56,10 @@ Plug 'NLKNguyen/papercolor-theme'
 " :Startify
 Plug 'mhinz/vim-startify'
 
+" Vinegar
+" Use '-' to access
+Plug 'tpope/vim-vinegar'
+
 call plug#end()
 
 set number
