@@ -70,6 +70,3 @@ After install copy tmux.conf to $HOME folder
 To Install the plugins start tmux and press
 
 `Press Ctrl + A + I` 
-
-ty
-=======
