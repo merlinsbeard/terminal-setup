@@ -19,7 +19,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
 Plug 'sickill/vim-monokai'
 Plug 'chriskempson/base16-vim'
-Plug 'AlessandroYorba/Monrovia'
 Plug 'mattn/emmet-vim'
 " Git plugins
 Plug 'tpope/vim-fugitive'
@@ -49,26 +48,31 @@ Plug 'junegunn/limelight.vim'
 " Game
 Plug 'johngrib/vim-game-code-break'
 
-
 Plug 'NLKNguyen/papercolor-theme'
 
 " Vim startify
-" :Startify
 Plug 'mhinz/vim-startify'
 
-" Vinegar
-" Use '-' to access
 Plug 'tpope/vim-vinegar'
+
+" Javascripts
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mxw/vim-jsx'
+Plug 'w0rp/ale'
+
+" Indent
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
+set autoread
+set ruler
+set hid
+set foldcolumn=1
+set noswapfile
+
 set number
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-set fileformat=unix
 au BufNewFile,BufRead *.py
 	\ set tabstop=4 |
 	\ set softtabstop=4 |
@@ -78,6 +82,8 @@ au BufNewFile,BufRead *.py
 	\ set autoindent |
 	\ set fileformat=unix
 
+
+autocmd filetype javascript set sw=2 ts=2 expandtab
 "au BufNewFile,BufRead *.js, *.html, *.css
 "	\ set tabstop=2 |
 "	\ set softtabstop=2 |
@@ -121,6 +127,8 @@ syntax on
 
 " Start NerdTreeTabs
 let g:nerdtree_tabs_open_on_console_startup=1
+"colorscheme zenburn
+" colorscheme seoul256
 colorscheme PaperColor
 let g:NERDTreeDirArrow=0
 
@@ -131,9 +139,10 @@ nnoremap <F4> :set hlsearch! hlsearch?<CR>
 " flake
 autocmd FileType python map <buffer> <F3> :call Flake8()<cr>
 
+set background=dark
 " Transparency
-"hi Normal ctermbg=none
-"highlight NonText ctermbg=none
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
 
 " Github dashboard settings
 let g:github_dashboard = {'username':'merlinsbeard', 'password': '$GITHUB_PASSWORD'}
@@ -141,3 +150,12 @@ let g:github_dashboard = {'username':'merlinsbeard', 'password': '$GITHUB_PASSWO
 " Limelight auto on in Goyo mode
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" Javascript Configuration
+"let g:vim_jsx_pretty_colorful_config = 1 " default 0
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" Indent options
+let g:indentLine_setColors = 0
+let g:indentLine_char = '┆'
