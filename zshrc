@@ -8,7 +8,7 @@ export ZSH=/home/$USER/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="theunraveler"
+#ZSH_THEME="theunraveler"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -99,7 +99,15 @@ zplug "stedolan/jq", \
 zplug "b4b4r07/emoji-cli", \
     on:"stedolan/jq"
 
+# Dracula Theme
+zplug "dracula/zsh", as:theme
+
 
 # Then, source plugins and add commands to $PATH
 #zplug load --verbose
 zplug load
+
+# Add ZSH Auto Complete
+source /etc/zsh_command_not_found
+autoload bashcompinit && bashcompinit
+

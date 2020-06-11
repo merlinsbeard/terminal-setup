@@ -1,20 +1,8 @@
 # Contains my settings for VIM, TMUX, and ZSH
 
 ## VIM settings
-Has 2 options for package
 
-1. [Vundle](https://github.com/VundleVim/Vundle.vim)
-2. [vim-plug](https://github.com/junegunn/vim-plug)
-
-### Vundle Installation
-
-` $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim `
-
-Copy the vundle.vimrc to home folder
-
-` $ cp vundle.vimrc ~/.vimrc `
-
-Open vim then run ` :PluginInstall `this will install all the plugins.
+1. [vim-plug](https://github.com/junegunn/vim-plug)
 
 
 ### vim-plug Installation
@@ -70,3 +58,28 @@ After install copy tmux.conf to $HOME folder
 To Install the plugins start tmux and press
 
 `Press Ctrl + A + I` 
+
+## Oh my ZSH install
+
+1. Install ZSH
+
+```
+$ sudo apt update
+$ sudo apt install zsh
+$ zsh --version
+$ chsh -s $(which zsh)
+$ echo $SHELL
+```
+
+2. Install oh my zsh
+
+```
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+3. Copy zsh file
+
+```
+$ cp zshrc ~/.zshrc
+```
+
