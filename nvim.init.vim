@@ -33,12 +33,20 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
+Plug 'github/copilot.vim'
 call plug#end()
 
 let NERDTreeQuitOnOpen=1
@@ -60,9 +68,10 @@ nnoremap <space> za
 
 " ZFZ
 nnoremap <C-P> :FZF <return>
+nnoremap <C-t> :IndentLinesToggle <return>
 
 colorscheme gruvbox
-let g:nerdtree_tabs_open_on_console_startup=0
+let g:nerdtree_tabs_open_on_console_startup=1
 
 
 nnoremap <F9> :NERDTreeToggle<cr>
@@ -74,3 +83,37 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()   
+let NERDTreeShowHidden=1
+let g:indentLine_setColors = 0
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+
+let g:indentLine_enabled = 0
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <Leader>fc :lua require'telescope.builtin'.git_status{}<cr>
+autocmd User TelescopePreviewerLoaded setlocal wrap
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+function! DoesFileExists()
+	if filereadable("./format_disable")
+		echo "elo"
+	else
+		autocmd BufWritePre *.tsx Prettier
+		autocmd BufWritePre *.ts Prettier
+	endif
+endfunction
+
+call DoesFileExists()
+
+nnoremap <silent> <A-Up> :resize -1<CR>
+nnoremap <silent> <A-Down> :resize +1<CR>
+
+nnoremap <silent> <C-l> :vertical resize -1<CR>
+nnoremap <silent> <C-h> :vertical resize +1<CR>
