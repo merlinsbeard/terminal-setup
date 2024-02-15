@@ -1,49 +1,17 @@
-# Contains my settings for VIM, TMUX, and ZSH
 
-## VIM settings
-
-1. [vim-plug](https://github.com/junegunn/vim-plug)
+# Configs and applications I use
 
 
-### vim-plug Installation
-Taken from [https://github.com/junegunn/vim-plug](https://github.com/junegunn/vim-plug)
+## Fonts usage
+1. [MonaSpace](https://monaspace.githubnext.com/)
+2. [Jetbrains Mono Nerd Font](/fonts/)
 
 
-```
-$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
+## Neovim setup
+1. [LazyVim](https://www.lazyvim.org/)
 
-
-Copy the vim-plug.vimrc to home folder
-
-` $ cp vim-plug ~/.vimrc `
-
-Open vim then run ` :PlugInstall `
-
-#### Dependencies
-
-##### You Complete Me vim Plugin
-
-```bash
-# go to youcompletemefolder
-$ cd ~/.vim/plugged/youcompleteme
-# Install cmake
-$ sudo apt-get install cmake
-# run installation script
-$ ./install.py # or ./install.py --all 
-```
-
-```
-# Needed for tagbar
-$ sudo apt-get install exuberant-ctags
-
-# Syntastic error checker
-$ sudo apt-get install flake8
-
-```
-
-------------------------------------
+## VSCode Settings
+1. `vscode-settings-user.json`
 
 ## TMUX
 Install tmux-plugins first
@@ -83,3 +51,47 @@ $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/t
 $ cp zshrc ~/.zshrc
 ```
 
+## Applications
+
+### Gui
+
+- [ ] [Brew](https://brew.sh/)
+- [ ] [Kitty Terminal](https://sw.kovidgoyal.net/kitty/)
+- [ ] [Postman](https://www.postman.com/)
+- [ ] [Docker](https://www.docker.com/get-started/)
+- [ ] [VSCode](https://code.visualstudio.com/)
+- [ ] [Brave Browser](https://brave.com/)
+- [ ] [Dbeaver](https://dbeaver.io/)
+- [ ] [Authy](https://authy.com/)
+- [ ]  [Birwarden](https://bitwarden.com/)
+- [ ] [Obsidian note taking](https://obsidian.md/)
+- [ ] [Raycast](https://www.raycast.com/)
+- [ ] [Magnet tile windows](https://apps.apple.com/us/app/magnet/id441258766?mt=12)
+- [ ] [Numi calculator](https://numi.app/)
+
+### Terminal
+- [ ] [nvm node manager](https://github.com/nvm-sh/nvm)
+- [ ] [Neovim editor](https://neovim.io/)
+- [ ] [Golang](https://go.dev/)
+- [ ] [Rust](https://doc.rust-lang.org/cargo/getting-started/installation.html)
+- [ ] [Bun.sh](https://bun.sh/)
+- [ ] [pyenv](https://github.com/pyenv/pyenv)
+- [ ] [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
+- [ ] [miniconda](https://docs.anaconda.com/free/miniconda/index.html)
+- [ ] [AWS cli v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [ ] [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+
+
+
+## Brew apps
+```bash
+brew install \
+    tmux \ 
+    zoxide \
+    fzf \
+    tree \
+    tig \
+    ripgrep \
+    rsync \
+    jq
+```

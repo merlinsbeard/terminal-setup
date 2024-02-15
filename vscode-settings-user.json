@@ -1,0 +1,138 @@
+{
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    // "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.accessibilitySupport": "off",
+  "editor.cursorBlinking": "expand",
+  "editor.foldingMaximumRegions": 50000,
+  "editor.fontFamily": "'Monaspace Neon', monospace",
+  // "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontWeight": "normal",
+  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02'",
+  // "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.guides.bracketPairs": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.largeFileOptimizations": false,
+  "editor.lineNumbers": "relative",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": []
+  },
+  "git.mergeEditor": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true
+  },
+  "gitlens.hovers.currentLine.over": "line",
+  "rapidapi.terminalLink.enabled": false,
+  "redhat.telemetry.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "vim.highlightedyank.enable": true,
+  "vim.smartRelativeLine": true,
+  "vim.useSystemClipboard": true,
+  "workbench.colorTheme": "Catppuccin Frappé",
+  "zenMode.hideLineNumbers": false,
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "vim.vimrc.path": "~/.config/nvim/init.vim",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.iconTheme": "bearded-icons",
+  "editor.cursorSurroundingLines": 8,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // {
+    //   "before": ["<C-w>"],
+    //   "commands": ["workbench.action.closeActiveEditor"]
+    // }
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "+"],
+      "commands": ["editor.action.fontZoomIn"]
+    },
+    {
+      "before": ["<leader>", "-"],
+      "commands": ["editor.action.fontZoomOut"]
+    },
+    {
+      "before": ["<leader>", "="],
+      "commands": ["editor.action.fontZoomReset"]
+    },
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["<leader>", " "],
+      "commands": ["workbench.action.showCommands"]
+    }
+  ],
+  "vim.leader": " ",
+  "vim.visualModeKeyBindings": [
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "editor.minimap.enabled": false,
+  "errorLens.excludeBySource": ["ts(2345)", "ts(2339)"],
+  "workbench.startupEditor": "none",
+  "telemetry.telemetryLevel": "off",
+  "remote.SSH.connectTimeout": 30,
+  "workbench.colorCustomizations": {},
+  "gitlens.plusFeatures.enabled": false,
+  "workbench.editor.highlightModifiedTabs": true,
+  "terminal.integrated.scrollback": 10000,
+  "editor.mouseWheelZoom": true,
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "workbench.layoutControl.enabled": false,
+  "window.commandCenter": false,
+  "terminal.integrated.inheritEnv": false
+}
