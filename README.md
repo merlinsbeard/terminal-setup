@@ -70,6 +70,7 @@ $ cp zshrc ~/.zshrc
 - [ ] [Numi calculator](https://numi.app/)
 
 ### Terminal
+- [ ] [Github cli](https://cli.github.com/)
 - [ ] [nvm node manager](https://github.com/nvm-sh/nvm)
 - [ ] [Neovim editor](https://neovim.io/)
 - [ ] [Golang](https://go.dev/)
@@ -77,8 +78,21 @@ $ cp zshrc ~/.zshrc
 - [ ] [Bun.sh](https://bun.sh/)
 - [ ] [pyenv](https://github.com/pyenv/pyenv)
 - [ ] [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
+    ``` bash
+    pyenv global 3.9.9
+    ```
 - [ ] [miniconda](https://docs.anaconda.com/free/miniconda/index.html)
+    ``` bash
+    # So it doesnt auto start
+    # only start or activate when we need
+    # this way it doesnt conflict with pyenv
+    conda init
+    conda config --set auto_activate_base false
+    conda create -n <name> python=3.12
+    conda install jupterlab
+    ```
 - [ ] [AWS cli v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [ ] [AWS vault for managing different aws](https://github.com/99designs/aws-vault)
 - [ ] [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 
 
@@ -86,6 +100,7 @@ $ cp zshrc ~/.zshrc
 ## Brew apps
 ```bash
 brew install \
+    htop \
     tmux \ 
     zoxide \
     fzf \
