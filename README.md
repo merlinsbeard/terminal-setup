@@ -32,23 +32,23 @@ To Install the plugins start tmux and press
 1. Install ZSH
 
 ```
-$ sudo apt update
-$ sudo apt install zsh
-$ zsh --version
-$ chsh -s $(which zsh)
-$ echo $SHELL
+sudo apt update
+sudo apt install zsh
+zsh --version
+chsh -s $(which zsh)
+echo $SHELL
 ```
 
 2. Install oh my zsh
 
 ```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 3. Copy zsh file
 
 ```
-$ cp zshrc ~/.zshrc
+cp zshrc ~/.zshrc
 ```
 
 ## Applications
