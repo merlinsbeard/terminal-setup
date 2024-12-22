@@ -121,6 +121,9 @@ alias gm='git stash && git pull --rebase origin master && git stash pop'
 alias gmain='git stash && git pull --rebase origin main && git stash pop'
 
 alias nd='npm run dev'
+alias numi='numi-cli'
+alias vim='nvim'
+alias x='exit'
 
 
 
@@ -411,3 +414,11 @@ unset __conda_setup
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+function logg() {
+    git log --all --decorate --graph | fzf --ansi --no-sort --reverse \
+        --preview 'echo {} | grep -o "[a-f0-9]\{7\}" | head -1 | xargs -I % git show % --color=always' \
+        --preview-window=right:50%:wrap --height 100% \
+        --bind 'enter:execute(echo {} | grep -o "[a-f0-9]\{7\}" | head -1 | xargs -I % sh -c "git show % | nvim -c \"setlocal buftype=nofile bufhidden=wipe noswapfile nowrap\" -c \"nnoremap <buffer> q :q!<CR>\" -")' \
+        --bind 'ctrl-e:execute(echo {} | grep -o "[a-f0-9]\{7\}" | head -1 | xargs -I % sh -c "gh browse %")'
+}
