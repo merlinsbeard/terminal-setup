@@ -10,13 +10,14 @@
   },
   "[json]": {
     // "editor.defaultFormatter": "vscode.json-language-features"
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -29,20 +30,54 @@
   },
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.accessibilitySupport": "off",
-  "editor.cursorBlinking": "expand",
+  "editor.cursorBlinking": "phase",
   "editor.foldingMaximumRegions": 50000,
-  "editor.fontFamily": "'Monaspace Neon', monospace",
+  "editor.fontFamily": "JetBrainsMono Nerd Font, 'Monaspace Neon', monospace",
   // "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontWeight": "normal",
-  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02'",
-  // "editor.fontLigatures": true,
-  "editor.fontSize": 16,
+  "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
+  // "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02'",
   "editor.guides.bracketPairs": true,
   "editor.inlineSuggest.enabled": true,
   "editor.largeFileOptimizations": false,
   "editor.lineNumbers": "relative",
   "editor.tokenColorCustomizations": {
-    "textMateRules": []
+    "[*Light*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#000"
+          }
+        }
+      ]
+    },
+    "[*Dark*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#fff"
+          }
+        }
+      ]
+    },
+    "textMateRules": [
+      {
+        "name": "envKeys",
+        "scope": "string.quoted.single.ini,constant.numeric.ini,string.quoted.double.ini",
+        "settings": {
+          "foreground": "#19354900"
+        }
+      },
+      {
+        "name": "envComments",
+        "scope": "comment.line.number-sign.ini",
+        "settings": {
+          "foreground": "#19354900"
+        }
+      }
+    ]
   },
   "git.mergeEditor": false,
   "github.copilot.enable": {
@@ -53,23 +88,16 @@
     "yaml": true
   },
   "gitlens.hovers.currentLine.over": "line",
-  "rapidapi.terminalLink.enabled": false,
   "redhat.telemetry.enabled": true,
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
   "vim.highlightedyank.enable": true,
   "vim.smartRelativeLine": true,
   "vim.useSystemClipboard": true,
-  "workbench.colorTheme": "Catppuccin Frappé",
   "zenMode.hideLineNumbers": false,
   "vim.neovimPath": "/opt/homebrew/bin/nvim",
   "vim.vimrc.path": "~/.config/nvim/init.vim",
   "javascript.preferences.importModuleSpecifier": "non-relative",
-  "workbench.productIconTheme": "fluent-icons",
-  "workbench.iconTheme": "bearded-icons",
   "editor.cursorSurroundingLines": 8,
   "terminal.integrated.defaultProfile.linux": "zsh",
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -77,6 +105,14 @@
     //   "before": ["<C-w>"],
     //   "commands": ["workbench.action.closeActiveEditor"]
     // }
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.previousEditorInGroup"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.nextEditorInGroup"]
+    },
     {
       "before": ["<leader>", "e"],
       "commands": ["workbench.action.toggleSidebarVisibility"]
@@ -123,16 +159,47 @@
   "errorLens.excludeBySource": ["ts(2345)", "ts(2339)"],
   "workbench.startupEditor": "none",
   "telemetry.telemetryLevel": "off",
-  "remote.SSH.connectTimeout": 30,
   "workbench.colorCustomizations": {},
   "gitlens.plusFeatures.enabled": false,
   "workbench.editor.highlightModifiedTabs": true,
-  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.scrollback": 100000,
   "editor.mouseWheelZoom": true,
+  "editor.lineHeight": 1.75,
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
-  "terminal.integrated.inheritEnv": false
+  "terminal.integrated.inheritEnv": false,
+  "editor.snippetSuggestions": "top",
+  // Hide the git details on hover
+  "gitlens.hovers.enabled": false,
+  "python.languageServer": "Pylance",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.iconTheme": "bearded-icons",
+  "cloak.environmentKeys": "string.quoted.single.ini,constant.numeric.ini,string.quoted.double.ini",
+  "cloak.environmentComments": "comment.line.number-sign.ini",
+  "cloak.hideComments": true,
+  "files.associations": {
+    ".env*": "dotenv",
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+  },
+  "dotenv.enableAutocloaking": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[django-html]": {
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    }
+  },
+  "editor.fontSize": 14,
+  "terminal.integrated.fontWeight": "normal",
+  "workbench.colorTheme": "JellyFish"
+  // "debug.javascript.autoAttachFilter": "disabled"
 }
