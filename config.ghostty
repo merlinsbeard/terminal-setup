@@ -1,0 +1,6 @@
+macos-option-as-alt = true
+background-opacity = 0.75
+background-blur-radius = 50
+macos-icon-frame = beige
+theme = catppuccin-mocha
+unfocused-split-opacity = .70
