@@ -55,13 +55,6 @@ preset = 'qwerty'
 #                 In this example, 24 is a default value when there is no match.
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-# [gaps]
-# inner.horizontal = 0
-# inner.vertical =   0
-# outer.left =       0
-# outer.bottom =     0
-# outer.top =        0
-# outer.right =      0
 
 [gaps]
 inner.horizontal = 20
@@ -153,6 +146,8 @@ alt-shift-semicolon = 'mode service'
 alt-shift-enter = 'mode apps'
 
 alt-g = 'exec-and-forget open -a /Applications/Ghostty.app'
+# Full screen
+alt-shift-f = 'fullscreen'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -173,3 +168,6 @@ alt-shift-l = ['join-with right', 'mode main']
 down = 'volume down'
 up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
+
+[mode.apps.binding]
+alt-shift-enter= 'mode main'
