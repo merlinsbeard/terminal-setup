@@ -72,6 +72,14 @@ Window tiling for MacOS
 cp aerospace.toml ~/.aerospace.toml
 ```
 
+## Git
+
+After installing `git`
+
+```bash
+cp gitconfig ~/.gitconfig
+```
+
 ## Applications
 
 ### GUI
