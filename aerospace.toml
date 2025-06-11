@@ -11,8 +11,6 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 #after-startup-command = []
 
-
-# Install snackbar first
 after-startup-command = [
   'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
 ]
@@ -176,7 +174,9 @@ alt-t = 'exec-and-forget open -a /Applications/Telegram.app'
 alt-b = 'exec-and-forget open -a /Applications/Brave\ Browser.app'
 alt-o = 'exec-and-forget open -a /Applications/Obsidian.app'
 alt-v = 'exec-and-forget open -a /Applications/Visual\ Studio\ Code.app'
-alt-p = 'exec-and-forget open -a /Applications/Bruno.app'
+alt-d = 'exec-and-forget open -a /Applications/Discord.app'
+alt-n = 'exec-and-forget open -a /Applications/Numi.app'
+alt-shift-p = 'exec-and-forget open -a /Applications/Bruno.app'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -221,6 +221,10 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'obsidian'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'numi'
 run = 'layout floating'
 
 [workspace-to-monitor-force-assignment]

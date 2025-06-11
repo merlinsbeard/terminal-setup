@@ -56,14 +56,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 cp zshrc ~/.zshrc
 ```
 
-## Kitty
-
-Terminal Emulation
-
-```bash
-cp kitty -r ~/.config/
-```
-
 ## Aerospace
 
 Window tiling for MacOS
@@ -144,6 +136,17 @@ brew install \
     ripgrep \
     rsync \
     jq
+```
+
+[JankyBorders](https://github.com/FelixKratz/JankyBorders) for window highlight
+
+```
+brew tap FelixKratz/formulae
+brew install borders
+```
+
+```
+
 ```
 
 ## Other Configurations for mac
