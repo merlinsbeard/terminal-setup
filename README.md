@@ -84,26 +84,23 @@ cp gitconfig ~/.gitconfig
 
 ### GUI
 
-- [ ] [Brew](https://brew.sh/)
-- [ ] [Kitty Terminal](https://sw.kovidgoyal.net/kitty/)
-- [ ] [Ghosttty](https://github.com/ghostty-org/ghostty)
-- [ ] [Postman](https://www.postman.com/)
-- [ ] [Docker](https://www.docker.com/get-started/)
-- [ ] [VSCode](https://code.visualstudio.com/)
-- [ ] [Brave Browser](https://brave.com/)
-- [ ] [DBeaver](https://dbeaver.io/)
-- [ ] [Authy](https://authy.com/)
-- [ ] [Bitwarden](https://bitwarden.com/)
-- [ ] [Obsidian note taking](https://obsidian.md/)
-- [ ] [Raycast](https://www.raycast.com/)
-- [ ] [Magnet tile windows](https://apps.apple.com/us/app/magnet/id441258766?mt=12)
-- [ ] [Numi calculator](https://numi.app/)
+- [ ] [Brew](https://brew.sh/) MacOS package manager
+- [ ] [Ghosttty](https://github.com/ghostty-org/ghostty) Terminal Emulator
+- [ ] [Postman](https://www.postman.com/) API Client
+- [ ] [Docker](https://www.docker.com/get-started/) Container Manager
+- [ ] [VSCode](https://code.visualstudio.com/) Code Editor
+- [ ] [Brave Browser](https://brave.com/) Browser
+- [ ] [DBeaver](https://dbeaver.io/) Database Client
+- [ ] [Bitwarden](https://bitwarden.com/) Password Manager
+- [ ] [Obsidian note taking](https://obsidian.md/) Note Taking
+- [ ] [Magnet tile windows](https://apps.apple.com/us/app/magnet/id441258766?mt=12) Window Manager
+- [ ] [Numi calculator](https://numi.app/) Calculator
 
 ### Terminal
 
 - [ ] [Github cli](https://cli.github.com/)
-- [ ] [NVM node manager](https://github.com/nvm-sh/nvm)
-- [ ] [Neovim editor](https://neovim.io/)
+- [ ] [NVM node manager](https://github.com/nvm-sh/nvm) Node version manager
+- [ ] [Neovim editor](https://neovim.io/) Terminal Editor
 - [ ] [Golang](https://go.dev/)
 - [ ] [Rust](https://doc.rust-lang.org/cargo/getting-started/installation.html)
 - [ ] [Bun.sh](https://bun.sh/)
@@ -129,10 +126,10 @@ cp gitconfig ~/.gitconfig
   conda install jupterlab
   ```
 
-- [ ] [AWS cli v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-- [ ] [AWS vault for managing different aws](https://github.com/99designs/aws-vault)
-- [ ] [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
-- [ ] [Aerospace](https://github.com/nikitabobko/AeroSpace)
+- [ ] [AWS cli v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS cli
+- [ ] [AWS vault for managing different aws](https://github.com/99designs/aws-vault) AWS account manager
+- [ ] [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) Kubernetes Client
+- [ ] [Aerospace](https://github.com/nikitabobko/AeroSpace) Window Tile Manager
 
 ## Brew apps
 
