@@ -1,0 +1,10 @@
+# ~/.zshenv - Environment variables loaded for all shell types
+# Copy this file to ~/.zshenv and fill in your values
+# Make sure to secure it: chmod 600 ~/.zshenv
+
+# =============================================================================
+# Private tokens - DO NOT COMMIT actual values
+# =============================================================================
+export CLAUDE_CODE_OAUTH_TOKEN=your-token-here
+export GITHUB_TOKEN=your-token-here
+export HOMEBREW_GITHUB_API_TOKEN=your-token-here
