@@ -4,19 +4,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Repo Is
 
-A macOS dotfiles repository. Config files are manually copied to their home directory locations (no symlinks, no automation). After editing any config here, copy it to `~` to apply.
+A macOS dotfiles repository. Run `./install.sh` to install apps, then `./deploy.sh` to copy configs to `~`.
 
-## Deployment Commands
+## Commands
 
 ```bash
-cp aerospace.toml ~/.aerospace.toml
-cp tmux.conf ~/.tmux.conf
-cp zshrc ~/.zshrc
-cp zshenv.example ~/.zshenv      # then fill in tokens, chmod 600
-cp gitconfig ~/.gitconfig
-cp config.ghostty ~/.config/ghostty/config
-# nvim/ -> ~/.config/nvim/
+./install.sh                     # Install required apps and tools
+./install.sh --help              # Show what gets installed
+./deploy.sh                      # Deploy all configs (with backup)
+./deploy.sh zsh nvim tmux        # Deploy specific targets
+./deploy.sh --no-backup          # Deploy without backing up existing files
+./deploy.sh --list               # List available targets
 ```
+
+`deploy.sh` backs up existing configs to `~/.dotfiles-backup/<timestamp>/` before overwriting.
+Warns if a target app is not installed (but still copies the config).
 
 ## Config Files and Their Targets
 

@@ -4,16 +4,10 @@ Dotfiles and configuration for my macOS development environment.
 
 ## Quick Start
 
-Copy configs to their home directory locations:
-
 ```bash
-cp aerospace.toml ~/.aerospace.toml
-cp tmux.conf ~/.tmux.conf
-cp zshrc ~/.zshrc
-cp zshenv.example ~/.zshenv   # fill in your tokens, then: chmod 600 ~/.zshenv
-cp gitconfig ~/.gitconfig
-cp config.ghostty ~/.config/ghostty/config
-cp -r nvim/ ~/.config/nvim/
+./install.sh                 # Install required apps and tools
+./deploy.sh                  # Deploy all configs (backs up existing)
+./deploy.sh zsh nvim tmux    # Deploy specific configs only
 ```
 
 ## Fonts
