@@ -1,0 +1,112 @@
+name: Security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  secrets:
+    name: Secret Scanning
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan for leaked secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint shell scripts
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: .
+          additional_files: zshrc
+
+  dangerous-patterns:
+    name: Dangerous Patterns
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for destructive commands
+        run: |
+          echo "Scanning for dangerous patterns..."
+          EXIT_CODE=0
+
+          # Patterns to flag (with context)
+          PATTERNS=(
+            'rm -rf /'
+            'rm -rf ~'
+            'rm -rf \$HOME'
+            'rm -rf \*'
+            'mkfs\.'
+            'dd if='
+            ':(){:|:&};:'
+            'chmod -R 777'
+            'chmod 777'
+            '> /dev/sda'
+            'curl.*|.*sudo'
+            'wget.*|.*sudo'
+          )
+
+          for pattern in "${PATTERNS[@]}"; do
+            # Search all tracked files, skip this workflow file itself
+            MATCHES=$(grep -rn --include='*.sh' --include='*.zsh' --include='zshrc' --include='*.toml' \
+              -E "$pattern" . \
+              --exclude-dir=.git \
+              --exclude='.github/workflows/security.yml' \
+              2>/dev/null || true)
+
+            if [[ -n "$MATCHES" ]]; then
+              echo "::warning::Found potentially dangerous pattern: $pattern"
+              echo "$MATCHES"
+              EXIT_CODE=1
+            fi
+          done
+
+          # Check for unquoted variables in shell scripts (common security issue)
+          UNQUOTED=$(grep -rn --include='*.sh' \
+            -E 'rm.*\$[A-Z_]+[^"'"'"']' . \
+            --exclude-dir=.git \
+            2>/dev/null || true)
+
+          if [[ -n "$UNQUOTED" ]]; then
+            echo "::warning::Found potentially unquoted variables in rm commands"
+            echo "$UNQUOTED"
+            EXIT_CODE=1
+          fi
+
+          if [[ $EXIT_CODE -eq 0 ]]; then
+            echo "No dangerous patterns found."
+          fi
+
+          exit $EXIT_CODE
+
+  syntax:
+    name: Syntax Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate bash scripts
+        run: |
+          echo "Checking bash syntax..."
+          bash -n install.sh
+          bash -n deploy.sh
+          echo "All bash scripts pass syntax check."
+
+      - name: Validate zsh syntax
+        run: |
+          echo "Checking zsh syntax..."
+          zsh -n zshrc || echo "::warning::zshrc has syntax issues (may require oh-my-zsh sourced)"
+          echo "Done."

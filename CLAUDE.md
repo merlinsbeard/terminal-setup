@@ -20,26 +20,14 @@ A macOS dotfiles repository. Run `./install.sh` to install apps, then `./deploy.
 `deploy.sh` backs up existing configs to `~/.dotfiles-backup/<timestamp>/` before overwriting.
 Warns if a target app is not installed (but still copies the config).
 
-## Config Files and Their Targets
-
-| Repo file | Deploys to | Notes |
-|---|---|---|
-| `aerospace.toml` | `~/.aerospace.toml` | AeroSpace tiling WM. Reload: `alt-shift-;` then `esc` |
-| `tmux.conf` | `~/.tmux.conf` | Prefix is `Ctrl-a`. Install plugins: `Ctrl-a + I` |
-| `zshrc` | `~/.zshrc` | Oh-My-Zsh with lazy-loaded NVM/Conda |
-| `zshenv.example` | `~/.zshenv` | Template for private tokens (never commit real values) |
-| `gitconfig` | `~/.gitconfig` | Uses nvim as editor, rebase on pull |
-| `config.ghostty` | Ghostty config | Catppuccin Mocha, 75% opacity |
-| `nvim/` | `~/.config/nvim/` | LazyVim framework |
-| `vscode-settings-user.json` | VS Code user settings | |
-
 ## Conventions
 
 - **Theme**: Catppuccin (Mocha/Macchiato) across all tools
 - **TOML formatting**: The nvim TOML formatter strips section indentation to flat style — this is expected and valid
-- **Secrets**: Go in `~/.zshenv` (from `zshenv.example`), never committed. The `.gitignore` only excludes `.DS_Store`
+- **Secrets**: Go in `~/.zshenv` (from `zshenv.example`), never committed
 - **Commit messages**: Use conventional format with scope — `feat(tmux): ...`, `ref(zsh): ...`, `chore: ...`
 - **Zsh performance**: NVM and Conda are lazy-loaded; completions are cached in `zsh/` directory. Don't add eager-loading of heavy tools
+- **CI**: Security workflow runs on push/PR — gitleaks, ShellCheck, dangerous pattern scan, syntax validation
 
 ## Key Architecture Decisions
 
