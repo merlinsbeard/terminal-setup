@@ -16,6 +16,7 @@ plugins=(
   # git     # ~150 aliases like ga, gc, gp - disabled for speed
   # docker  # docker aliases - disabled for speed
   # macos   # ofd, cdf, quick-look - disabled for speed
+  golang
 )
 
 DISABLE_AUTO_UPDATE=true
@@ -140,14 +141,15 @@ if [[ ! -f ~/.zsh/kubectl.zsh ]] || [[ $(which kubectl) -nt ~/.zsh/kubectl.zsh ]
 fi
 source ~/.zsh/kubectl.zsh
 
-# gh completion (regenerate if binary is newer)
-if [[ ! -f ~/.zsh/gh.zsh ]] || [[ $(which gh) -nt ~/.zsh/gh.zsh ]]; then
-  gh completion -s zsh > ~/.zsh/gh.zsh
+# gh completion
+if command -v gh &> /dev/null; then
+  eval "$(gh completion -s zsh)"
 fi
-source ~/.zsh/gh.zsh
 
 # uv completion
-eval "$(uv generate-shell-completion zsh)"
+if command -v uv &> /dev/null; then
+  eval "$(uv generate-shell-completion zsh)"
+fi
 
 # bun completions
 [ -s "/Users/neb/.bun/_bun" ] && source "/Users/neb/.bun/_bun"
