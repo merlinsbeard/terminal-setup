@@ -47,9 +47,14 @@ zsh -n zshrc
 # zsh: source ~/.zshrc or open new terminal
 ```
 
-### No Build/Test/Lint Commands
+### CI - GitHub Actions
 
-This repo has no build system, test suite, automated linting, or CI/CD pipeline.
+A security workflow runs on push to `main` and on pull requests (`.github/workflows/security.yml`):
+
+- **Secret scanning** - gitleaks detects leaked tokens, API keys, passwords
+- **ShellCheck** - lints `install.sh`, `deploy.sh`, `zshrc` for unsafe shell patterns
+- **Dangerous patterns** - flags `rm -rf /`, `chmod 777`, `curl | sudo`, etc.
+- **Syntax validation** - runs `bash -n` and `zsh -n` on scripts
 
 ## File Structure
 
@@ -57,6 +62,7 @@ This repo has no build system, test suite, automated linting, or CI/CD pipeline.
 .
 ├── install.sh            # Install required apps and tools
 ├── deploy.sh             # Deploy configs to home directory
+├── .github/workflows/    # CI security checks (gitleaks, shellcheck)
 ├── aerospace.toml        # AeroSpace tiling window manager
 ├── config.ghostty        # Ghostty terminal emulator
 ├── gitconfig             # Git configuration
@@ -138,7 +144,6 @@ nvm() { _nvm_load; nvm "$@"; }
 | Aliases | Short, lowercase | `gm`, `nd`, `vim` |
 | Functions | snake_case | `load_nvmrc`, `_nvm_load` |
 | Environment vars | UPPER_SNAKE_CASE | `NVM_DIR`, `FZF_DEFAULT_COMMAND` |
-| Lua variables | snake_case | `lazy_path`, `nvmrc_node_version` |
 | tmux options | kebab-case | `status-left-length`, `pane-border-status` |
 
 ## Key Architecture Decisions
@@ -156,6 +161,7 @@ nvm() { _nvm_load; nvm "$@"; }
 - **Don't commit .zshenv**: Only `zshenv.example` is tracked; real secrets stay local
 - **Don't modify LazyVim core**: Add overrides in `lua/plugins/`, import extras properly
 - **Check deployment**: After editing, run `./deploy.sh <target>` to apply changes
+- **Don't add dangerous patterns**: CI flags `rm -rf /`, `chmod 777`, `curl | sudo`, etc.
 
 ## File-Specific Notes
 
@@ -167,9 +173,7 @@ nvm() { _nvm_load; nvm "$@"; }
 ### tmux.conf
 - TPM (plugin manager) installed via `./install.sh`
 - After changes: `Ctrl-a + I` to install/update plugins
-- Catppuccin Macchiato theme with custom status bar
 
 ### zshrc
 - Profile startup: uncomment `zmodload zsh/zprof` at top and `zprof` at bottom
 - Oh-My-Zsh plugins minimized for speed - add sparingly
-- FZF integration uses `fd` for file finding

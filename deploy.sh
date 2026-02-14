@@ -178,7 +178,7 @@ deploy() {
   case "$target" in
     zsh)
       if cp "$SCRIPT_DIR/zshrc" "$HOME/.zshrc" 2>/dev/null; then
-        success "zsh" "zshrc" "~/.zshrc"
+        success "zsh" "zshrc" "$HOME/.zshrc"
         DEPLOYED=$((DEPLOYED + 1))
       else
         fail "zsh" "failed to copy zshrc"
@@ -189,7 +189,7 @@ deploy() {
     nvim)
       mkdir -p "$HOME/.config"
       if cp -r "$SCRIPT_DIR/nvim/" "$HOME/.config/nvim/" 2>/dev/null; then
-        success "nvim" "nvim/" "~/.config/nvim/"
+        success "nvim" "nvim/" "$HOME/.config/nvim/"
         DEPLOYED=$((DEPLOYED + 1))
       else
         fail "nvim" "failed to copy nvim/"
@@ -199,7 +199,7 @@ deploy() {
 
     tmux)
       if cp "$SCRIPT_DIR/tmux.conf" "$HOME/.tmux.conf" 2>/dev/null; then
-        success "tmux" "tmux.conf" "~/.tmux.conf"
+        success "tmux" "tmux.conf" "$HOME/.tmux.conf"
         DEPLOYED=$((DEPLOYED + 1))
       else
         fail "tmux" "failed to copy tmux.conf"
@@ -209,7 +209,7 @@ deploy() {
 
     aerospace)
       if cp "$SCRIPT_DIR/aerospace.toml" "$HOME/.aerospace.toml" 2>/dev/null; then
-        success "aerospace" "aerospace.toml" "~/.aerospace.toml"
+        success "aerospace" "aerospace.toml" "$HOME/.aerospace.toml"
         DEPLOYED=$((DEPLOYED + 1))
       else
         fail "aerospace" "failed to copy aerospace.toml"
@@ -220,7 +220,7 @@ deploy() {
     ghostty)
       mkdir -p "$HOME/.config/ghostty"
       if cp "$SCRIPT_DIR/config.ghostty" "$HOME/.config/ghostty/config" 2>/dev/null; then
-        success "ghostty" "config.ghostty" "~/.config/ghostty/config"
+        success "ghostty" "config.ghostty" "$HOME/.config/ghostty/config"
         DEPLOYED=$((DEPLOYED + 1))
       else
         fail "ghostty" "failed to copy config.ghostty"
@@ -230,7 +230,7 @@ deploy() {
 
     git)
       if cp "$SCRIPT_DIR/gitconfig" "$HOME/.gitconfig" 2>/dev/null; then
-        success "git" "gitconfig" "~/.gitconfig"
+        success "git" "gitconfig" "$HOME/.gitconfig"
         DEPLOYED=$((DEPLOYED + 1))
       else
         fail "git" "failed to copy gitconfig"
@@ -242,7 +242,7 @@ deploy() {
       local vscode_dir="$HOME/Library/Application Support/Code/User"
       mkdir -p "$vscode_dir"
       if cp "$SCRIPT_DIR/vscode-settings-user.json" "$vscode_dir/settings.json" 2>/dev/null; then
-        success "vscode" "vscode-settings-user.json" "~/Library/.../settings.json"
+        success "vscode" "vscode-settings-user.json" "$HOME/Library/.../settings.json"
         DEPLOYED=$((DEPLOYED + 1))
       else
         fail "vscode" "failed to copy vscode settings"
@@ -252,12 +252,12 @@ deploy() {
 
     zshenv)
       if [[ -f "$HOME/.zshenv" ]]; then
-        warn "zshenv" "skipped (${DIM}~/.zshenv already exists${RST}${YELLOW})${RST}"
+        warn "zshenv" "skipped (${DIM}\$HOME/.zshenv already exists${RST}${YELLOW})${RST}"
         SKIPPED=$((SKIPPED + 1))
       else
         if cp "$SCRIPT_DIR/zshenv.example" "$HOME/.zshenv" 2>/dev/null; then
           chmod 600 "$HOME/.zshenv"
-          success "zshenv" "zshenv.example" "~/.zshenv"
+          success "zshenv" "zshenv.example" "$HOME/.zshenv"
           echo -e "    ${YELLOW}fill in your tokens and keep chmod 600${RST}"
           DEPLOYED=$((DEPLOYED + 1))
         else

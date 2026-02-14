@@ -18,7 +18,6 @@ FAILED=0
 if [[ -t 1 ]] && [[ -z "${NO_COLOR:-}" ]]; then
   GREEN='\033[38;2;166;227;161m'    # #a6e3a1
   RED='\033[38;2;243;139;168m'      # #f38ba8
-  YELLOW='\033[38;2;249;226;175m'   # #f9e2af
   BLUE='\033[38;2;137;180;250m'     # #89b4fa
   MAUVE='\033[38;2;203;166;247m'    # #cba6f7
   DIM='\033[38;2;108;112;134m'      # #6c7086 overlay0
@@ -26,7 +25,7 @@ if [[ -t 1 ]] && [[ -z "${NO_COLOR:-}" ]]; then
   BOLD='\033[1m'
   RST='\033[0m'
 else
-  GREEN='' RED='' YELLOW='' BLUE='' MAUVE='' DIM='' SUB='' BOLD='' RST=''
+  GREEN='' RED='' BLUE='' MAUVE='' DIM='' SUB='' BOLD='' RST=''
 fi
 
 # =============================================================================
