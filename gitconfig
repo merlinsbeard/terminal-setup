@@ -1,34 +1,56 @@
 [user]
 	email = me@benpaat.xyz
 	name = ben
+
+# Large file storage support
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
 [core]
+	# Use neovim as the default editor for commits, rebases, etc.
 	editor = /opt/homebrew/bin/nvim
-	# editor = /usr/bin/vim
+
 [init]
+	# New repos start with 'main' instead of 'master'
 	defaultBranch = main
 
 [branch]
-  sort = -committerdate
+	# Show most recently committed branches first
+	sort = -committerdate
+
 [tag]
-  sort = version:refname
+	# Sort tags by semantic version (v1.2.3) instead of alphabetically
+	sort = version:refname
+
 [diff]
-  algorithm = histogram
-  colorMoved = plain
-  mnemonicPrefix = true
-  renames = true
+	# Better diff algorithm that handles refactored code well
+	algorithm = histogram
+	# Highlight moved lines in a different color
+	colorMoved = plain
+	# Show 'i/' and 'w/' instead of 'a/' and 'b/' in diff headers (index/worktree)
+	mnemonicPrefix = true
+	# Detect renamed files in diffs
+	renames = true
 
 [help]
-  autocorrect = prompt
+	# Prompt before auto-correcting typos (e.g. 'git stauts' -> 'git status')
+	autocorrect = prompt
+
 [commit]
-  verbose = true
+	# Show the full diff in the commit message editor
+	verbose = true
 
 [pull]
-  rebase = true
+	# Rebase local commits on top of upstream instead of creating merge commits
+	rebase = true
 
 [column]
-  ui = auto
+	# Display branch lists and tags in columns
+	ui = auto
+
+[push]
+	# Push current branch to a remote branch with the same name
+	default = current
