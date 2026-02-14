@@ -30,7 +30,7 @@ jobs:
         uses: ludeeus/action-shellcheck@master
         with:
           scandir: .
-          additional_files: zshrc
+          ignore_names: zshrc
 
   dangerous-patterns:
     name: Dangerous Patterns
@@ -55,8 +55,8 @@ jobs:
             'chmod -R 777'
             'chmod 777'
             '> /dev/sda'
-            'curl.*|.*sudo'
-            'wget.*|.*sudo'
+            'curl.*\|.*sudo'
+            'wget.*\|.*sudo'
           )
 
           for pattern in "${PATTERNS[@]}"; do
