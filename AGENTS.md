@@ -18,7 +18,20 @@ This is a **configuration-only** dotfiles repository for macOS. There is no buil
 Installs: Homebrew, CLI tools (tmux, neovim, fzf, fd, ripgrep, etc.), Oh My Zsh, TPM, NVM, fonts.
 Skips anything already installed.
 
-### Deploy Configs
+### Deploy Configs (Go CLI - primary)
+
+```bash
+go run ./cmd/deploy/             # Interactive deploy with TUI
+./deploy                         # Run pre-built binary
+go build -o deploy ./cmd/deploy/ # Build the binary
+```
+
+Interactive Bubble Tea TUI with checkbox selection for targets. Supports:
+- `space` to toggle targets, `a` to toggle all, `enter` to deploy
+- Backup toggle (`b` on confirm screen)
+- Catppuccin Mocha colored output
+
+### Deploy Configs (Shell - fallback)
 
 ```bash
 ./deploy.sh                      # Deploy all configs (with backup)
