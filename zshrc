@@ -29,6 +29,9 @@ ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump"
 
 source $ZSH/oh-my-zsh.sh
 
+# Timestamp in right prompt (date + time for every command)
+RPROMPT='%{$fg[white]%}%D{%Y-%m-%d %H:%M}%{$reset_color%}'
+
 # =============================================================================
 # Aliases - Directory Navigation
 # =============================================================================
