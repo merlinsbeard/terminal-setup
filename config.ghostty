@@ -4,3 +4,4 @@ background-blur-radius = 50
 macos-icon-frame = beige
 theme = catppuccin-mocha
 unfocused-split-opacity = .70
+keybind = shift+enter=text:\x1b\r
