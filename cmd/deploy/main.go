@@ -52,7 +52,7 @@ func allTargets() []target {
 	return []target{
 		{name: "zsh", src: "zshrc", dest: filepath.Join(home, ".zshrc"), command: "zsh"},
 		{name: "nvim", src: "nvim", dest: filepath.Join(home, ".config", "nvim"), isDir: true, command: "nvim"},
-		{name: "tmux", src: "tmux.conf", dest: filepath.Join(home, ".tmux.conf"), command: "tmux"},
+		{name: "tmux", src: "tmux.conf", dest: filepath.Join(home, ".config", "tmux", "tmux.conf"), command: "tmux"},
 		{name: "aerospace", src: "aerospace.toml", dest: filepath.Join(home, ".aerospace.toml"), command: "aerospace"},
 		{name: "ghostty", src: "config.ghostty", dest: filepath.Join(home, ".config", "ghostty", "config")},
 		{name: "git", src: "gitconfig", dest: filepath.Join(home, ".gitconfig"), command: "git"},
