@@ -139,7 +139,7 @@ do_backup() {
     case "$t" in
       zsh)       [[ -f "$HOME/.zshrc" ]] && needs_backup=true ;;
       nvim)      [[ -d "$HOME/.config/nvim" ]] && needs_backup=true ;;
-      tmux)      [[ -f "$HOME/.tmux.conf" ]] && needs_backup=true ;;
+      tmux)      [[ -f "$HOME/.config/tmux/tmux.conf" ]] && needs_backup=true ;;
       aerospace) [[ -f "$HOME/.aerospace.toml" ]] && needs_backup=true ;;
       ghostty)   [[ -f "$HOME/.config/ghostty/config" ]] && needs_backup=true ;;
       git)       [[ -f "$HOME/.gitconfig" ]] && needs_backup=true ;;
@@ -157,7 +157,7 @@ do_backup() {
     case "$t" in
       zsh)       backup_file "$HOME/.zshrc" ;;
       nvim)      backup_file "$HOME/.config/nvim" ;;
-      tmux)      backup_file "$HOME/.tmux.conf" ;;
+      tmux)      backup_file "$HOME/.config/tmux/tmux.conf" ;;
       aerospace) backup_file "$HOME/.aerospace.toml" ;;
       ghostty)   backup_file "$HOME/.config/ghostty/config" ;;
       git)       backup_file "$HOME/.gitconfig" ;;
@@ -198,8 +198,9 @@ deploy() {
       ;;
 
     tmux)
-      if cp "$SCRIPT_DIR/tmux.conf" "$HOME/.tmux.conf" 2>/dev/null; then
-        success "tmux" "tmux.conf" "$HOME/.tmux.conf"
+      mkdir -p "$HOME/.config/tmux"
+      if cp "$SCRIPT_DIR/tmux.conf" "$HOME/.config/tmux/tmux.conf" 2>/dev/null; then
+        success "tmux" "tmux.conf" "$HOME/.config/tmux/tmux.conf"
         DEPLOYED=$((DEPLOYED + 1))
       else
         fail "tmux" "failed to copy tmux.conf"
