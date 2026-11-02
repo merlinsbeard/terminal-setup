@@ -31,13 +31,35 @@ User settings: `vscode-settings-user.json`
    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
    ```
 
-2. Copy config and install plugins:
+2. Deploy the config to `~/.config/tmux/tmux.conf`:
 
    ```bash
-   cp tmux.conf ~/.tmux.conf
+   ./deploy.sh tmux
    ```
 
 3. Start tmux, then press `Ctrl-a + I` to install plugins
+
+### Keybindings
+
+The prefix is `Ctrl-a`. Press it, let go, then press the key.
+
+| Prefix + key | Action |
+|--------------|--------|
+| `I` | Install plugins (TPM) |
+| `T` | Toggle light (Catppuccin Latte) / dark (Catppuccin Macchiato) theme |
+| `Ctrl-s` | Open the csm Claude session picker in a popup |
+| `g` | Split into a 2x2 grid of panes |
+| `G` | Split into 3 panes: main top-left 70%, sidebar top-right 30%, bottom 25% |
+| `Ctrl-a` | Send `Ctrl-a` to the program in the pane |
+
+Without the prefix:
+
+| Key | Action |
+|-----|--------|
+| `Ctrl-←` `Ctrl-→` `Ctrl-↑` `Ctrl-↓` | Move to the pane in that direction |
+| `v` (copy mode) | Start selection |
+| `y` (copy mode) | Copy selection to the clipboard and leave copy mode |
+| `Enter` (copy mode) | Copy selection to the clipboard and leave copy mode |
 
 ## Zsh
 

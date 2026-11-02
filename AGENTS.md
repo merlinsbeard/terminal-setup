@@ -186,6 +186,7 @@ nvm() { _nvm_load; nvm "$@"; }
 ### tmux.conf
 - TPM (plugin manager) installed via `./install.sh`
 - After changes: `Ctrl-a + I` to install/update plugins
+- Adding or changing a keybinding: update the Keybindings tables in `README.md`
 
 ### zshrc
 - Profile startup: uncomment `zmodload zsh/zprof` at top and `zprof` at bottom
