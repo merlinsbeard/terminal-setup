@@ -31,6 +31,6 @@ Warns if a target app is not installed (but still copies the config).
 
 ## Key Architecture Decisions
 
-- **tmux prefix**: `Ctrl-a` (not default `Ctrl-b`), with tmux-tilit plugin for tiling via `Alt-space`
+- **tmux prefix**: `Ctrl-a` (not default `Ctrl-b`)
 - **AeroSpace**: `alt` is the primary modifier. `alt-shift-;` enters service mode, `alt-shift-enter` enters apps mode. App launchers are direct bindings (e.g., `alt-g` for Ghostty)
 - **NVM auto-switch**: The `chpwd` hook in zshrc auto-loads `.nvmrc` on directory change, lazy-loading NVM only when needed
