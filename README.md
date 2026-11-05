@@ -50,6 +50,7 @@ The prefix is `Ctrl-a`. Press it, let go, then press the key.
 | `Ctrl-s` | Open the csm Claude session picker in a popup |
 | `g` | Split into a 2x2 grid of panes |
 | `G` | Split into 3 panes: main top-left 70%, sidebar top-right 30%, bottom 25% |
+| `H` `J` `K` `L` | Resize the pane left, down, up, right (tap again to repeat without the prefix) |
 | `Ctrl-a` | Send `Ctrl-a` to the program in the pane |
 
 Without the prefix:
